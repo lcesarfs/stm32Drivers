@@ -100,3 +100,5 @@ typedef struct
 
 #endif /* INC_STM32F106CBT6_H_ */
 
+/*teste*/
+
