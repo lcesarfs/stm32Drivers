@@ -2,3 +2,4 @@
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Startup/startup_stm32g0b1retx.o"
+"./drivers/src/stm32f106_gpio.o"

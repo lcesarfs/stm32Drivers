@@ -114,7 +114,7 @@ typedef struct
 #define I2C3_PCLK_EN() (RCR -> APBENR1 |= (1<<23))
 
 /*Clock enable macros for SPI peripherals*/
-#define SPI2_PCLK_EN() (RCR -> APBENR2 |= (1<<12))
+#define SPI1_PCLK_EN() (RCR -> APBENR2 |= (1<<12))
 #define SPI2_PCLK_EN() (RCR -> APBENR1 |= (1<<14))
 #define SPI3_PCLK_EN() (RCR -> APBENR1 |= (1<<15))
 
@@ -143,7 +143,7 @@ typedef struct
 #define I2C3_PCLK_DI() (RCR -> APBENR1 &= ~(1<<23))
 
 /*Clock disable macros for SPI peripherals*/
-#define SPI2_PCLK_DI() (RCR -> APBENR2 &= ~(1<<12))
+#define SPI1_PCLK_DI() (RCR -> APBENR2 &= ~(1<<12))
 #define SPI2_PCLK_DI() (RCR -> APBENR1 &= ~(1<<14))
 #define SPI3_PCLK_DI() (RCR -> APBENR1 &= ~(1<<15))
 
