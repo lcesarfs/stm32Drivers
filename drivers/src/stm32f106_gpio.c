@@ -78,20 +78,35 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 	if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANA)
 	{
 		temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
-		pGPIOHandle->pGPIOx->MODER = temp;
+		pGPIOHandle->pGPIOx->MODER |= temp;
 		temp = 0;
 	}else
 	{
 //		this part will code later(interrupt mode)
 	}
+	temp = 0;
 
 	//2. configure the speed
+	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OSPEEDR |= temp;
+	temp = 0;
 
 	//3. configure the pupd settings
+	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->PUPDR |= temp;
+	temp = 0;
 
 	//4. configure the optype
+	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->OTYPER |= temp;
+	temp = 0;
 
 	//5. configure the alt functionality
+	if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode == GPIO_MODE_ALTFN)
+	{
+//		configure the alt function register
+	}
+
 }
 
 }
