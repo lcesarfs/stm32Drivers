@@ -158,6 +158,13 @@ typedef struct
 /*Clock disable macros for SYSCFG peripherals*/
 #define SYSCFG_PCLK_DI() (RCR -> APBENR2 &= ~(1<<0))
 
+
+#define ENABLE 			1
+#define DISABLE 		0
+#define SET 			ENABLE
+#define RESET 			DISABLE
+#define GPIO_PIN_SET	SET
+#define GPIO_PIN_RESET	RESET
 #endif /* INC_STM32F106CBT6_H_ */
 
 

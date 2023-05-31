@@ -254,9 +254,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/src/stm32f106_gpio.o
- .debug_macro   0x0000000000000000      0x1ce ./drivers/src/stm32f106_gpio.o
+ .debug_macro   0x0000000000000000      0x1f8 ./drivers/src/stm32f106_gpio.o
  .debug_line    0x0000000000000000      0x3de ./drivers/src/stm32f106_gpio.o
- .debug_str     0x0000000000000000     0x46cf ./drivers/src/stm32f106_gpio.o
+ .debug_str     0x0000000000000000     0x4721 ./drivers/src/stm32f106_gpio.o
  .comment       0x0000000000000000       0x51 ./drivers/src/stm32f106_gpio.o
  .ARM.attributes
                 0x0000000000000000       0x2c ./drivers/src/stm32f106_gpio.o
@@ -562,7 +562,7 @@ LOAD c:/st/stm32cubeide_1.11.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_ranges  0x0000000000000000       0x10 ./Src/main.o
  .debug_ranges  0x0000000000000010       0x20 ./Startup/startup_stm32g0b1retx.o
 
-.debug_macro    0x0000000000000000     0x10e7
+.debug_macro    0x0000000000000000     0x1111
  .debug_macro   0x0000000000000000       0x6c ./Src/main.o
  .debug_macro   0x000000000000006c      0xa5a ./Src/main.o
  .debug_macro   0x0000000000000ac6       0x22 ./Src/main.o
@@ -571,16 +571,16 @@ LOAD c:/st/stm32cubeide_1.11.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0000000000000bc7      0x103 ./Src/main.o
  .debug_macro   0x0000000000000cca       0x6a ./Src/main.o
  .debug_macro   0x0000000000000d34      0x1df ./Src/main.o
- .debug_macro   0x0000000000000f13      0x1d4 ./Src/main.o
+ .debug_macro   0x0000000000000f13      0x1fe ./Src/main.o
 
 .debug_line     0x0000000000000000      0x454
  .debug_line    0x0000000000000000      0x3d0 ./Src/main.o
  .debug_line    0x00000000000003d0       0x84 ./Startup/startup_stm32g0b1retx.o
 
-.debug_str      0x0000000000000000     0x4581
- .debug_str     0x0000000000000000     0x4550 ./Src/main.o
-                                       0x46ab (size before relaxing)
- .debug_str     0x0000000000004550       0x31 ./Startup/startup_stm32g0b1retx.o
+.debug_str      0x0000000000000000     0x45d3
+ .debug_str     0x0000000000000000     0x45a2 ./Src/main.o
+                                       0x46fd (size before relaxing)
+ .debug_str     0x00000000000045a2       0x31 ./Startup/startup_stm32g0b1retx.o
                                          0x66 (size before relaxing)
 
 .comment        0x0000000000000000       0x50
