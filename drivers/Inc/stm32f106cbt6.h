@@ -44,7 +44,7 @@
 #define SPI3_BASEADDR 		(APBPERIPH_BASE + 0x3C00)
 #define SPI2_BASEADDR 		(APBPERIPH_BASE + 0x3800)
 
-
+//GPIO Registers
 typedef struct
 {
 	volatile uint32_t MODER;
@@ -55,12 +55,11 @@ typedef struct
 	volatile uint32_t ODR;
 	volatile uint32_t BSRR;
 	volatile uint32_t LCKR;
-	volatile uint32_t AFRL;
-	volatile uint32_t AFRH;
+	volatile uint32_t AFR[2];
 	volatile uint32_t BRR;
 }GPIO_RegDef_t;
 
-
+//Reset Clock Control Registers
 typedef struct
 {
 	volatile uint32_t CR;
@@ -98,7 +97,7 @@ typedef struct
 #define GPIOE	((GPIO_RegDef_t*) GPIOE_BASEADDR)
 #define GPIOF	((GPIO_RegDef_t*) GPIOF_BASEADDR)
 
-#define RCR		((GPIO_RegDef_t*) RCC_BASEADDR)
+#define RCR		((RCC_RegDef_t*) RCC_BASEADDR)
 
 /*Clock enable macros for GPIOx peripherals*/
 #define GPIOA_PCLK_EN() (RCR -> IOPENR |= (1<<0))
@@ -107,6 +106,7 @@ typedef struct
 #define GPIOD_PCLK_EN() (RCR -> IOPENR |= (1<<3))
 #define GPIOE_PCLK_EN() (RCR -> IOPENR |= (1<<4))
 #define GPIOF_PCLK_EN() (RCR -> IOPENR |= (1<<5))
+
 
 /*Clock enable macros for I2C peripherals*/
 #define I2C1_PCLK_EN() (RCR -> APBENR1 |= (1<<21))

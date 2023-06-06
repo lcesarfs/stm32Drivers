@@ -26,7 +26,7 @@
 
 void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx,uint8_t EnorDi )
 {
-	if (EnorDI == ENABLE)
+	if (EnorDi == ENABLE)
 	{
 		if (pGPIOx == GPIOA)
 		{
@@ -67,50 +67,60 @@ void GPIO_PeriClockControl(GPIO_RegDef_t *pGPIOx,uint8_t EnorDi )
 		}else if (pGPIOx == GPIOF)
 		{
 			GPIOF_PCLK_DI();
+		}
 	}
 }
 
 /* Peripheral Ini and De-init */
+
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
-	//1. configure the mode of the gpio pin
-	uint32_t temp = 0;
-	if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANA)
+	uint32_t temp=0;
+//1. configure the mode of the gpio pin
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode <= GPIO_MODE_ANA)
 	{
 		temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinMode<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+		pGPIOHandle->pGPIOx->MODER &= ~(0x03 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 		pGPIOHandle->pGPIOx->MODER |= temp;
-		temp = 0;
+
+
 	}else
 	{
-//		this part will code later(interrupt mode)
+
 	}
 	temp = 0;
 
 	//2. configure the speed
-	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinSpeed<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OSPEEDR &= ~(0x03 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 	pGPIOHandle->pGPIOx->OSPEEDR |= temp;
 	temp = 0;
 
-	//3. configure the pupd settings
-	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	//3. configure pull up and pull down settings
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinPuPdControl<<(2*pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->PUPDR &= ~(0x03 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 	pGPIOHandle->pGPIOx->PUPDR |= temp;
 	temp = 0;
 
-	//4. configure the optype
-	tem = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType<<pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	//4. configure the output type
+	temp = (pGPIOHandle->GPIO_PinConfig.GPIO_PinOPType<<(pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber));
+	pGPIOHandle->pGPIOx->OTYPER &= ~(0x01 << pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
 	pGPIOHandle->pGPIOx->OTYPER |= temp;
 	temp = 0;
 
 	//5. configure the alt functionality
-	if(pGPIOHandle->GPIO_PinConfig->GPIO_PinMode == GPIO_MODE_ALTFN)
+	if(pGPIOHandle->GPIO_PinConfig.GPIO_PinMode == GPIO_MODE_ALTFN)
 	{
-//		configure the alt function register
+////		configure the alt function register
+		uint8_t temp1, temp2;
+//
+		temp1 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber /8;
+		temp2 = pGPIOHandle->GPIO_PinConfig.GPIO_PinNumber %8;
+		pGPIOHandle->pGPIOx->AFR[temp1] &= ~ (0x0F << ( 4 * temp2 ));
+		pGPIOHandle->pGPIOx->AFR[temp1] |= (pGPIOHandle->GPIO_PinConfig.GPIO_PinAltFunMode << ( 4 * temp2 ));
 	}
 
 }
-
-}
-
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
 {
 

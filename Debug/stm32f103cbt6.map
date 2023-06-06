@@ -239,14 +239,36 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./drivers/src/stm32f106_gpio.o
  .group         0x0000000000000000        0xc ./drivers/src/stm32f106_gpio.o
  .group         0x0000000000000000        0xc ./drivers/src/stm32f106_gpio.o
+ .group         0x0000000000000000        0xc ./drivers/src/stm32f106_gpio.o
  .text          0x0000000000000000        0x0 ./drivers/src/stm32f106_gpio.o
  .data          0x0000000000000000        0x0 ./drivers/src/stm32f106_gpio.o
  .bss           0x0000000000000000        0x0 ./drivers/src/stm32f106_gpio.o
- .debug_info    0x0000000000000000       0x68 ./drivers/src/stm32f106_gpio.o
- .debug_abbrev  0x0000000000000000       0x29 ./drivers/src/stm32f106_gpio.o
- .debug_aranges
+ .text.GPIO_PeriClockControl
+                0x0000000000000000      0x140 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_Init
+                0x0000000000000000      0x1a2 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_DeInit
+                0x0000000000000000       0x10 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_ReadFromInputPin
                 0x0000000000000000       0x18 ./drivers/src/stm32f106_gpio.o
- .debug_macro   0x0000000000000000       0x7c ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_ReadFromInputPort
+                0x0000000000000000       0x12 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_WriteToOutputPin
+                0x0000000000000000       0x20 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_WriteToOutputPort
+                0x0000000000000000       0x16 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_ToggleOutputPin
+                0x0000000000000000       0x16 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_IRQConfig
+                0x0000000000000000       0x26 ./drivers/src/stm32f106_gpio.o
+ .text.GPIO_IRQHandling
+                0x0000000000000000       0x14 ./drivers/src/stm32f106_gpio.o
+ .debug_info    0x0000000000000000      0x593 ./drivers/src/stm32f106_gpio.o
+ .debug_abbrev  0x0000000000000000      0x10e ./drivers/src/stm32f106_gpio.o
+ .debug_aranges
+                0x0000000000000000       0x68 ./drivers/src/stm32f106_gpio.o
+ .debug_ranges  0x0000000000000000       0x58 ./drivers/src/stm32f106_gpio.o
+ .debug_macro   0x0000000000000000       0x81 ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000      0xa5a ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000       0x22 ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000       0x8e ./drivers/src/stm32f106_gpio.o
@@ -255,9 +277,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/src/stm32f106_gpio.o
  .debug_macro   0x0000000000000000      0x1f8 ./drivers/src/stm32f106_gpio.o
- .debug_line    0x0000000000000000      0x3de ./drivers/src/stm32f106_gpio.o
- .debug_str     0x0000000000000000     0x4721 ./drivers/src/stm32f106_gpio.o
+ .debug_macro   0x0000000000000000       0xc4 ./drivers/src/stm32f106_gpio.o
+ .debug_line    0x0000000000000000      0x641 ./drivers/src/stm32f106_gpio.o
+ .debug_str     0x0000000000000000     0x4bf9 ./drivers/src/stm32f106_gpio.o
  .comment       0x0000000000000000       0x51 ./drivers/src/stm32f106_gpio.o
+ .debug_frame   0x0000000000000000      0x154 ./drivers/src/stm32f106_gpio.o
  .ARM.attributes
                 0x0000000000000000       0x2c ./drivers/src/stm32f106_gpio.o
  .text          0x0000000000000000        0x0 c:/st/stm32cubeide_1.11.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-errno.o)
@@ -577,10 +601,10 @@ LOAD c:/st/stm32cubeide_1.11.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x0000000000000000      0x3d0 ./Src/main.o
  .debug_line    0x00000000000003d0       0x84 ./Startup/startup_stm32g0b1retx.o
 
-.debug_str      0x0000000000000000     0x45d3
- .debug_str     0x0000000000000000     0x45a2 ./Src/main.o
-                                       0x46fd (size before relaxing)
- .debug_str     0x00000000000045a2       0x31 ./Startup/startup_stm32g0b1retx.o
+.debug_str      0x0000000000000000     0x45d2
+ .debug_str     0x0000000000000000     0x45a1 ./Src/main.o
+                                       0x46fc (size before relaxing)
+ .debug_str     0x00000000000045a1       0x31 ./Startup/startup_stm32g0b1retx.o
                                          0x66 (size before relaxing)
 
 .comment        0x0000000000000000       0x50
