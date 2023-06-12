@@ -9,6 +9,7 @@
 #define INC_STM32F106CBT6_H_
 #include <stdint.h>
 
+
 #define FLASH_BASEADDR		0x8000000U
 #define ROM_BASEADDR		0x1FFF0000U
 #define SRAM 				0x2000000U
@@ -156,7 +157,15 @@ typedef struct
 #define USART6_PCLK_DI() (RCR -> APBENR1 &= ~(1<<9))
 
 /*Clock disable macros for SYSCFG peripherals*/
-#define SYSCFG_PCLK_DI() (RCR -> APBENR2 &= ~(1<<0))
+#define SYSCFG_PCLK_DI() 	(RCR -> APBENR2 &= ~(1<<0))
+
+/*Macros to rest GPIOx peripherals*/
+#define GPIOA_REG_RST()		do{(RCR -> IOPRSTR |=(1<<0)); (RCR -> IOPRSTR &= ~(1<<0));}while(0)
+#define GPIOB_REG_RST()		do{(RCR -> IOPRSTR |=(1<<1)); (RCR -> IOPRSTR &= ~(1<<1));}while(0)
+#define GPIOC_REG_RST()		do{(RCR -> IOPRSTR |=(1<<2)); (RCR -> IOPRSTR &= ~(1<<2));}while(0)
+#define GPIOD_REG_RST()		do{(RCR -> IOPRSTR |=(1<<3)); (RCR -> IOPRSTR &= ~(1<<3));}while(0)
+#define GPIOE_REG_RST()		do{(RCR -> IOPRSTR |=(1<<4)); (RCR -> IOPRSTR &= ~(1<<4));}while(0)
+#define GPIOF_REG_RST()		do{(RCR -> IOPRSTR |=(1<<5)); (RCR -> IOPRSTR &= ~(1<<5));}while(0)
 
 
 #define ENABLE 			1
@@ -165,6 +174,9 @@ typedef struct
 #define RESET 			DISABLE
 #define GPIO_PIN_SET	SET
 #define GPIO_PIN_RESET	RESET
+
+#include "stm32f106_gpio.h"
+
 #endif /* INC_STM32F106CBT6_H_ */
 
 
