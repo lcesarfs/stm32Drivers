@@ -48,16 +48,16 @@
 //GPIO Registers
 typedef struct
 {
-	volatile uint32_t MODER;
-	volatile uint32_t OTYPER;
-	volatile uint32_t OSPEEDR;
-	volatile uint32_t PUPDR;
-	volatile uint32_t IDR;
-	volatile uint32_t ODR;
-	volatile uint32_t BSRR;
-	volatile uint32_t LCKR;
-	volatile uint32_t AFR[2];
-	volatile uint32_t BRR;
+	volatile uint32_t MODER;	// 00
+	volatile uint32_t OTYPER;	// 04
+	volatile uint32_t OSPEEDR;	// 08
+	volatile uint32_t PUPDR;	// 0c
+	volatile uint32_t IDR;		// 10
+	volatile uint32_t ODR;		// 14
+	volatile uint32_t BSRR;		// 18
+	volatile uint32_t LCKR;		// 1C
+	volatile uint32_t AFR[2];	// 20 and 24
+	volatile uint32_t BRR;		// 28
 }GPIO_RegDef_t;
 
 //Reset Clock Control Registers
