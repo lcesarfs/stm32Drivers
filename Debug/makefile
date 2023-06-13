@@ -35,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := stm32f103cbt6
+BUILD_ARTIFACT_NAME := stm32Drivers
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-stm32f103cbt6.elf \
+stm32Drivers.elf \
 
 MAP_FILES += \
-stm32f103cbt6.map \
+stm32Drivers.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-stm32f103cbt6.list \
+stm32Drivers.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: stm32f103cbt6.elf secondary-outputs
+main-build: stm32Drivers.elf secondary-outputs
 
 # Tool invocations
-stm32f103cbt6.elf stm32f103cbt6.map: $(OBJS) $(USER_OBJS) C:\stm32prjs\drivers\stm32Drivers\stm32Drivers\STM32G0B1RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32f103cbt6.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\stm32prjs\drivers\stm32Drivers\stm32Drivers\STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32f103cbt6.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32Drivers.elf stm32Drivers.map: $(OBJS) $(USER_OBJS) C:\stmprj\stm32Drivers\STM32G0B1RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32Drivers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\stmprj\stm32Drivers\STM32G0B1RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32Drivers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -71,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-stm32f103cbt6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stm32f103cbt6.list"
+stm32Drivers.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stm32Drivers.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout stm32f103cbt6.elf stm32f103cbt6.list stm32f103cbt6.map
+	-$(RM) default.size.stdout stm32Drivers.elf stm32Drivers.list stm32Drivers.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
