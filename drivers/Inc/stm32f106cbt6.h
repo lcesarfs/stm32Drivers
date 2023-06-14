@@ -60,6 +60,50 @@ typedef struct
 	volatile uint32_t BRR;		// 28
 }GPIO_RegDef_t;
 
+//peripheral register definition structure for EXTI
+typedef struct
+{
+	volatile uint32_t RTSR1;		// 00
+	volatile uint32_t FTSR1;		// 04
+	volatile uint32_t SWIER1;		// 08
+	volatile uint32_t RPR1;			// 0c
+	volatile uint32_t FPR1;			// 10
+	volatile uint32_t RESERVED1;	// 14
+	volatile uint32_t RESERVED2;	// 18
+	volatile uint32_t RESERVED3;	// 1C
+	volatile uint32_t RESERVED4;	// 20
+	volatile uint32_t RESERVED5;	// 24
+	volatile uint32_t RTSR2;		// 28
+	volatile uint32_t FTSR2;		// 2C
+	volatile uint32_t SWIER2;		// 30
+	volatile uint32_t RPR2;			// 34
+	volatile uint32_t FPR2;			// 38
+	volatile uint32_t RESERVED6;	// 3C
+	volatile uint32_t RESERVED7;	// 40
+	volatile uint32_t RESERVED8;	// 44
+	volatile uint32_t RESERVED9;	// 48
+	volatile uint32_t RESERVED10;	// 4C
+	volatile uint32_t RESERVED11;	// 50
+	volatile uint32_t RESERVED12;	// 54
+	volatile uint32_t RESERVED13;	// 58
+	volatile uint32_t RESERVED14;	// 5C
+	volatile uint32_t EXTICR1;		// 60
+	volatile uint32_t EXTICR2;		// 64
+	volatile uint32_t EXTICR3;		// 68
+	volatile uint32_t EXTICR4;		// 6C
+	volatile uint32_t RESERVED15;	// 70
+	volatile uint32_t RESERVED16;	// 74
+	volatile uint32_t RESERVED17;	// 78
+	volatile uint32_t RESERVED18;	// 7C
+	volatile uint32_t IMR1;			// 80
+	volatile uint32_t EMR1;			// 84
+	volatile uint32_t RESERVED19;	// 88
+	volatile uint32_t RESERVED20;	// 8C
+	volatile uint32_t IMR2;			// 90
+	volatile uint32_t EMR2;			// 94
+
+}EXTI_RegDef_t;
+
 //Reset Clock Control Registers
 typedef struct
 {
@@ -99,6 +143,7 @@ typedef struct
 #define GPIOF	((GPIO_RegDef_t*) GPIOF_BASEADDR)
 
 #define RCR		((RCC_RegDef_t*) RCC_BASEADDR)
+#define EXTI	((EXTI_RegDef_t*) EXTI_BASEADDR)
 
 /*Clock enable macros for GPIOx peripherals*/
 #define GPIOA_PCLK_EN() (RCR -> IOPENR |= (1<<0))
